@@ -1,4 +1,4 @@
-FROM ubuntu:latest as builder
+FROM debian:latest as builder
 
 # Build tk4 docker with jcc and rdrprep installed
 RUN apt update && apt install -yq unzip git build-essential
@@ -6,7 +6,7 @@ WORKDIR /tk4-/
 ADD http://wotho.ethz.ch/tk4-/tk4-_v1.00_current.zip /tk4-/
 RUN unzip tk4-_v1.00_current.zip && \
     rm -rf /tk4-/tk4-_v1.00_current.zip
-RUN echo "CONSOLE">/tk4-/unattended/mode
+#RUN echo "CONSOLE">/tk4-/unattended/mode
 RUN rm -rf /tk4-/hercules/darwin && \
     rm -rf /tk4-/hercules/windows && \
     rm -rf /tk4-/hercules/source
@@ -23,7 +23,7 @@ RUN make && make install
 
 
 # Deploy
-FROM ubuntu:latest
+FROM debian:latest
 MAINTAINER Phil Young - mainframed767
 LABEL version="0.1"
 LABEL description="tk4- Current with jcc and rdrprep"
