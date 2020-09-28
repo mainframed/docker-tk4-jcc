@@ -27,7 +27,7 @@ FROM ubuntu:latest
 MAINTAINER Phil Young - mainframed767
 LABEL version="0.1"
 LABEL description="tk4- Current with jcc and rdrprep"
-RUN apt update && apt install -yq zip wget curl ftp build-essential netcat
+RUN apt update && apt install -yq zip wget curl ftp build-essential netcat git
 
 WORKDIR /
 COPY --from=builder /jcc/ /jcc/
