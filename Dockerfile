@@ -37,6 +37,6 @@ WORKDIR /tk4-/
 COPY --from=builder /tk4-/ .
 COPY tk4_loaded.sh .
 RUN chmod +x tk4_loaded.sh
-VOLUME [ "/tk4-/conf","/tk4-/local_conf","/tk4-/local_scripts","/tk4-/prt","/tk4-/dasd","/tk4-/pch","/tk4-/jcl","tk4-/log" ]
+VOLUME [ "/tk4-/conf","/tk4-/local_conf","/tk4-/local_scripts","/tk4-/prt","/tk4-/dasd","/tk4-/pch","/tk4-/jcl","/tk4-/log" ]
 CMD ["./mvs"]
 EXPOSE 3270 8038 3505
