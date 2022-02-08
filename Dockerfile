@@ -1,4 +1,4 @@
-FROM debian:latest as builder
+FROM debian:buster as builder
 
 # Build tk4 docker with jcc and rdrprep installed
 RUN apt update && apt install -yq unzip git build-essential
@@ -23,7 +23,7 @@ RUN make && make install
 
 
 # Deploy
-FROM debian:latest
+FROM debian:buster
 MAINTAINER Phil Young - mainframed767
 LABEL version="0.1"
 LABEL description="tk4- Current with jcc and rdrprep"
